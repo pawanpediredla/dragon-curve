@@ -1,0 +1,10 @@
+{
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.autoSave": "onWindowChange",
+    "editor.formatOnSave": true,
+    "javascript.implicitProjectConfig.checkJs": true,
+    "javascript.validate.enable": true,
+    "typescript.validate.enable": true
+  }
+  

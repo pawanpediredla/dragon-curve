@@ -1,0 +1,77 @@
+# Makefile for my-dragon-curve project
+
+# Variables
+NODE = node
+NPM = npm
+SRC_DIR = src
+BUILD_DIR = build
+TEST_DIR = tests
+LINT = eslint
+FORMAT = prettier
+
+# Default target
+.PHONY: all
+all: lint test build
+
+# Build the project
+.PHONY: build
+build:
+	@echo "Building the project..."
+	@$(NODE) build.js
+
+# Clean the build directory
+.PHONY: clean
+clean:
+	@echo "Cleaning the build directory..."
+	@rm -rf $(BUILD_DIR)
+
+# Run unit tests
+.PHONY: test
+test:
+	@echo "Running tests..."
+	@$(NPM) test
+
+# Lint the code
+.PHONY: lint
+lint:
+	@echo "Linting the code..."
+	@$(LINT) $(SRC_DIR) $(TEST_DIR)
+
+# Format the code
+.PHONY: format
+format:
+	@echo "Formatting the code..."
+	@$(FORMAT) --write $(SRC_DIR) $(TEST_DIR)
+
+# Start the development server
+.PHONY: dev
+dev:
+	@echo "Starting development server..."
+	@$(NPM) run dev
+
+# Deploy the project
+.PHONY: deploy
+deploy:
+	@echo "Deploying the project..."
+	@$(NPM) run deploy
+
+# Install dependencies
+.PHONY: install
+install:
+	@echo "Installing dependencies..."
+	@$(NPM) install
+
+# Display help message
+.PHONY: help
+help:
+	@echo "Makefile commands:"
+	@echo "  make all       - Run lint, test, and build"
+	@echo "  make build     - Build the project"
+	@echo "  make clean     - Clean the build directory"
+	@echo "  make test      - Run tests"
+	@echo "  make lint      - Lint the code"
+	@echo "  make format    - Format the code"
+	@echo "  make dev       - Start the development server"
+	@echo "  make deploy    - Deploy the project"
+	@echo "  make install   - Install dependencies"
+	@echo "  make help      - Display this help message"

@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  web:
+    image: node:18
+    container_name: my-dragon-curve-web
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: npm start
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres:14
+    container_name: my-dragon-curve-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: my_dragon_curve_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge

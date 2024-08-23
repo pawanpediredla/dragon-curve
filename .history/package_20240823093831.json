@@ -1,0 +1,23 @@
+{
+    "name": "my-dragon-curve",
+    "version": "1.0.0",
+    "description": "A project to visualize and animate the Dragon Curve fractal.",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "parcel src/index.html",
+      "build": "parcel build src/index.html",
+      "test": "jest",
+      "cypress:open": "cypress open",
+      "cypress:run": "cypress run"
+    },
+    "dependencies": {
+      "parcel-bundler": "^1.12.4"
+    },
+    "devDependencies": {
+      "jest": "^27.4.5",
+      "cypress": "^8.7.0"
+    },
+    "author": "Your Name",
+    "license": "MIT"
+  }
+  
